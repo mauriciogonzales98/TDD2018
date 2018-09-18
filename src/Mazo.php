@@ -4,6 +4,15 @@ namespace TDD;
 
 class Mazo {
 
+public $cartas[];
+
+ public function crearmazo(){
+	for($i=0,$i<52,$i+=1){
+	$this->cartas[$i]=$i+1;
+	}
+	return $cartas[];
+}
+
   public function mezclar() {
     return TRUE;
   }
@@ -21,8 +30,12 @@ class Mazo {
  }
  
  public function vacio(){
+	if($this->cartas==NULL){
+	return FALSE}
+	else{
 	return TRUE;
- }
+	} 
+}
 
 public function agregar(){
 	return TRUE;

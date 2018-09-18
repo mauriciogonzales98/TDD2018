@@ -14,7 +14,13 @@ class MazoTest extends TestCase {
         $this->assertTrue(isset($mazo));
     }
 
-    public function testMezclable() {
+    public function testNuevoMazo(){
+	$mazo= new Mazo;
+	$mazo = $mazo->crearmazo();
+	$this->assertTrue(isset($mazo));
+   }
+
+  public function testMezclable() {
         $mazo = new Mazo;
         $this->assertTrue($mazo->mezclar());
     }
