@@ -13,16 +13,23 @@ public $cartas[];
 	return $cartas[];
 }
 
-  public function mezclar() {
-    return TRUE;
+  public function mezclar($baraja) {
+  	 $baraja=shuffle($baraja);
+    return $baraja;
   }
 
- public function cortar(){
-	return TRUE;
+ public function cortar($baraja,$cantacortar){
+ 	$baraja1=array_slice($baraja, 0,$cantacortar);
+ 	$resto=52-$cantacortar;
+ 	$baraja2=array_slice($baraja, $resto,52);
+ 	$baraja=array_merge($baraja1,$baraja2);
+	return $baraja;
  }
 
-  public function cantcart(){
-	return TRUE;
+  public function cantcart($baraja){
+  	 $total=count($baraja);
+  	 return $total;
+	
  }
 
    public function obtcarta(){

@@ -16,23 +16,29 @@ class MazoTest extends TestCase {
 
     public function testNuevoMazo(){
 	$mazo= new Mazo;
-	$mazo = $mazo->crearmazo();
-	$this->assertTrue(isset($mazo));
+	$baraja = $mazo->crearmazo();
+	$this->assertTrue(isset($baraja));
    }
 
   public function testMezclable() {
-        $mazo = new Mazo;
-        $this->assertTrue($mazo->mezclar());
+  $mazo = new Mazo;
+  $baraja = $mazo->crearmazo();
+  $baraja = $mazo->mezclar($baraja)
+  $this->assertTrue(isset($baraja));     
     }
 
   public function testCortar(){
 	$mazo= new Mazo;
-	$this->assertTrue($mazo->cortar());
+  $baraja = $mazo->crearmazo();
+  $baraja = $mazo->cortar($baraja,26);
+  $this->assertTrue(isset($baraja));  
    }
 
   public function testObtenercant(){
 	$mazo= new Mazo;
-	$this->assertTrue($mazo->cantcart());
+  $baraja = $mazo->crearmazo();
+  $total = $mazo->cantcart($baraja);
+	 $this->assertTrue(isset($total)); 
    }
 
   public function testCarta(){
