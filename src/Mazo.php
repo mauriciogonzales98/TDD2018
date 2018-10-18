@@ -4,14 +4,28 @@ namespace TDD;
 
 class Mazo {
 
-public $cartas[];
+public $baraja[];
+public $y=0;
+/*
 
  public function crearmazo(){
 	for($i=0,$i<52,$i+=1){
 	$this->cartas[$i]=$i+1;
 	}
 	return $cartas[];
-}
+}*/
+
+ public function crearmazo(){
+ 	for($i=0,$i<4,$i+=1){
+ 		for($x=0,$x<13,$x+=1){
+ 			$carta=new Carta($x,$i,1);
+ 			$baraja[$y]=$carta;
+ 			$y+=1;
+ 	  }
+ 	}
+ 	return $baraja;
+ }
+
 
   public function mezclar($baraja) {
   	 $baraja=shuffle($baraja);
