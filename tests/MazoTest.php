@@ -23,7 +23,7 @@ class MazoTest extends TestCase {
   public function testMezclable() {
   $mazo = new Mazo;
   $baraja = $mazo->crearmazo();
-  $baraja = $mazo->mezclar($baraja)
+  $baraja = $mazo->mezclar($baraja);
   $this->assertTrue(isset($baraja));     
     }
 
