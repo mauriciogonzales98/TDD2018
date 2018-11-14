@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/mauriciogonzales98/TDD2018.svg?branch=master)](https://travis-ci.org/mauriciogonzales98/TDD2018)
 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mauriciogonzales98/TDD2018/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/mauriciogonzales98/TDD2018/?branch=master)
+
 # Consigna
 
 - Utilizando TDD.
