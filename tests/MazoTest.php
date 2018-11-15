@@ -11,7 +11,7 @@ class MazoTest extends TestCase {
      */
     public function testExiste() {
         $mazo = new Mazo;
-        $this->assertTrue(isset($mazo[]));
+        $this->assertTrue(isset($mazo));
     }
 
     public function testNuevoMazo(){
