@@ -4,64 +4,84 @@ namespace TDD;
 
 class Mazo {
 
-public $baraja[];
-public $y=0;
-/*
+protected $baraja;
+protected $cantCartas;
 
- public function crearmazo(){
-	for($i=0,$i<52,$i+=1){
-	$this->cartas[$i]=$i+1;
+	public function __construct($array){
+		$this->baraja = $array;	
+		$this->cantCartas = 0;
 	}
-	return $cartas[];
-}*/
 
- public function crearmazo(){
- 	for($i=0,$i<4,$i+=1){
- 		for($x=0,$x<13,$x+=1){
- 			$carta=new Carta($x,$i,1);
- 			$baraja[$y]=$carta;
- 			$y+=1;
- 	  }
+
+  	public function mezclar() {
+  		shuffle($this->baraja);
+    	return true;
+	}
+	  
+
+	public function cortar($mazo){
+		if( !($mazo->vacio()) ){
+			$cantacortar = rand(1, $this->cantcart());
+			$mazo1 = array_slice($mazo, 0, $cantacortar);
+			$resto = $this->cantcart()-$cantacortar;
+			$mazo2 = array_slice($mazo, $resto, 52);
+			$this->baraja = array_merge($mazo1, $mazo2);
+			return $this->baraja;
+		}
+		else{
+			return false;
+		}
+	}
+
+
+	public function cantcart(){
+		return $this->cantCartas;
+	}
+
+
+   	public function obtMazo(){
+		return $this->baraja;
  	}
- 	return $baraja;
- }
+ 
+
+	public function vacio(){
+		if(isset($this->baraja)){
+			return true;
+		}
+		else{
+			return false;
+		} 
+	}
 
 
-  public function mezclar($baraja) {
-  	 $baraja=shuffle($baraja);
-    return $baraja;
-  }
+	public function agregarCarta($carta){
+		$this->baraja[$this->cantCartas] = $carta;
+		$this->cantCartas += $this->cantCartas;
+		return TRUE;
+	}
 
- public function cortar($baraja,$cantacortar){
- 	$baraja1=array_slice($baraja, 0,$cantacortar);
- 	$resto=52-$cantacortar;
- 	$baraja2=array_slice($baraja, $resto,52);
- 	$baraja=array_merge($baraja1,$baraja2);
-	return $baraja;
- }
 
-  public function cantcart($baraja){
-  	 $total=count($baraja);
-  	 return $total;
+	public function agregarMazo($mazo){
+		$this->baraja = array_merge($this->baraja, $mazo);
+		$this->cantCartas = count($this->baraja);
+		return TRUE;
+	}
+
+
+	public function pickCart($indice = -1){
+		if($indice == -1){
+			$indice = rand(0, $this->cantcart() - 1);
+		}
+		else{ 
+			$indice = $indice -1;
+		}
+		if($indice >= 0 && $indice < $this->cantcart()){
+			return $this->baraja[$indice];
+		}
+		else{
+			return false;
+		}
+	}
+
 	
- }
-
-   public function obtcarta(){
-	return TRUE;
- }
- 
- public function vacio(){
-	if($this->cartas==NULL){
-	return FALSE}
-	else{
-	return TRUE;
-	} 
-}
-
-public function agregar(){
-	return TRUE;
-}
-
- 
-
 }
