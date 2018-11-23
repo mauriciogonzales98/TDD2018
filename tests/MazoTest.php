@@ -10,54 +10,51 @@ class MazoTest extends TestCase {
      * Valida que se puedan crear mazos de cartas.
      */
     public function testExiste() {
-        $mazo = new Mazo([4,20]);
+        $mazo = new Mazo;
         $this->assertTrue(isset($mazo));
     }
 
+    public function testNuevoMazo(){
+	$mazo= new Mazo;
+	$baraja = $mazo->crearmazo();
+	$this->assertTrue(isset($baraja));
+   }
 
   public function testMezclable() {
-      $mazo = new Mazo([1,5,7,4,2]);
-      $oldMazo = $mazo->obtMazo();
-      $this->assertTrue($mazo->mezclar());
-      $mazo->mezclar();
-      $this->assertNotEquals($mazo, $oldMazo);
-  }
+  $mazo = new Mazo;
+  $baraja = $mazo->crearmazo();
+  $baraja = $mazo->mezclar($baraja);
+  $this->assertTrue(isset($baraja));     
+    }
 
-
-  // public function testCortar(){
-  //     $mazo= new Mazo;
-  //     $baraja = $mazo->crearmazo();
-  //     $baraja = $mazo->cortar($baraja,26);
-  //     $this->assertTrue(isset($baraja));  
-  //  }
-
-
-  public function testObtenerCant(){
-      $mazo = new Mazo([1,5,7,4,2]);
-      $this->assertEquals($mazo->cantcart(),5);
+  public function testCortar(){
+	$mazo= new Mazo;
+  $baraja = $mazo->crearmazo();
+  $baraja = $mazo->cortar($baraja,26);
+  $this->assertTrue(isset($baraja));  
    }
 
-
-  public function testObtCarta(){
-      $carta = new CartaEspanola('basto', 5);
-      $mazo = new Mazo([$carta]);
-      $this->assertEquals($mazo->obtenerCarta(1), $carta);
-      //checkear
-      $this->assertFalse($mazo->obtenerCarta(-2));
+  public function testObtenercant(){
+	$mazo= new Mazo;
+  $baraja = $mazo->crearmazo();
+  $total = $mazo->cantcart($baraja);
+	 $this->assertTrue(isset($total)); 
    }
 
+  public function testCarta(){
+	$mazo= new Mazo;
+	$this->assertTrue($mazo->obtcarta());
+   }
 
  public function testVacio(){
-      $mazo = new Mazo([]);
-      $this->assertTrue($mazo->vacio());
+	$mazo = new Mazo;
+	$this->assertTrue($mazo->vacio());
+ 
  }
-
 
  public function testAgregar(){
-      $mazo = new Mazo([]);
-      $carta = new CartaEspanola('oro', 10);
-      $this->assertTrue($mazo->agregar($carta));
+	$mazo = new Mazo;
+	$this->assertTrue($mazo->agregar());
+ 
  }
-
-
 }
