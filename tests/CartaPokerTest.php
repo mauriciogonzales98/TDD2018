@@ -11,10 +11,12 @@ class CartaPokerTest extends TestCase {
         $this->assertTrue(isset($carta));
 
         $carta2 = new CartaPoker('oro', 2);
-        $this->assertNull($carta2);
+        $this->assertNull($carta2->obtenerPalo());
+        $this->assertNull($carta2->obtenerNumero());
 
         $carta3 = new CartaPoker('diamante', 'L');
-        $this->assertNull($carta3);
+        $this->assertNull($carta3->obtenerPalo());
+        $this->assertNull($carta3->obtenerNumero());
     }
 
     public function testPaloYNumero(){

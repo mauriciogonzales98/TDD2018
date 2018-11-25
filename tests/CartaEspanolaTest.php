@@ -10,7 +10,8 @@ class CartaEspanolaTest extends TestCase {
         $carta = new CartaEspanola('copa', 1);
         $this->assertTrue(isset($carta));
         $carta2 = new CartaEspanola('picas', 2);
-        $this->assertNull($carta2);
+        $this->assertNull($carta2->obtenerPalo());
+        $this->assertNull($carta2->obtenerNumero());
     }
 
     public function testPaloYNumero(){
