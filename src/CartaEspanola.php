@@ -15,8 +15,7 @@ class CartaEspanola {
             $this->palo = $palo;
             $this->numero = $numero;  
             return true;
-        }
-        else {
+        } else {
             return false;
         }
              

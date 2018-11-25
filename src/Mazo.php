@@ -6,7 +6,7 @@ class Mazo {
 
 protected $baraja;
 
-  public function __construct($array){
+  public function __construct($array) {
     $this->baraja = $array;	
   }
 
@@ -17,14 +17,14 @@ protected $baraja;
   }
 	  
 
-  public function cortar(){
-    if($this->vacio()){
+  public function cortar() {
+    if ($this->vacio()) {
       return false;
     }
-    else{
+    else {
       $cantacortar = rand(1, $this->cantcart());
       $baraja = $this->obtMazo();
-      $mazo1 = array_slice($baraja, 0, $cantacortar-1);
+      $mazo1 = array_slice($baraja, 0, $cantacortar - 1);
       //$mazo2 = array_slice($this->baraja, $resto, $this->cantcart());
       $mazo2 = array_slice($baraja, $this->cantcart());
       $this->baraja = array_merge($mazo1, $mazo2);
@@ -33,43 +33,43 @@ protected $baraja;
   }
 
 
-  public function cantcart(){
+  public function cantcart() {
     return count($this->obtMazo());
   }
 
 
-      public function obtMazo(){
+      public function obtMazo() {
     return $this->baraja;
     }
  
 
-  public function vacio(){
-    if($this->cantcart() > 0){
+  public function vacio() {
+    if ($this->cantcart() > 0) {
       return false;
     }
-    else{
+    else {
       return true;
     }
   }
 
 
-  public function agregarCarta(CartaEspanola $carta){
+  public function agregarCarta(CartaEspanola $carta) {
     $this->baraja[] = $carta;
     return true;
   }
 
 
-  public function obtenerCarta($indice = -1){
-    if($indice == -1){
+  public function obtenerCarta($indice = -1) {
+    if ($indice == -1) {
       $indice = rand(0, $this->cantcart() - 1);
     }
-    else{
-      $indice = $indice -1;
+    else {
+      $indice = $indice - 1;
     }
-    if($indice >= 0 && $indice < $this->cantcart()){
+    if ($indice >= 0 && $indice < $this->cantcart()) {
       return $this->baraja[$indice];
     }
-    else{
+    else {
       return false;
     }
   }
