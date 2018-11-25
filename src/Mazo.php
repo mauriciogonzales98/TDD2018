@@ -17,17 +17,17 @@ protected $baraja;
 	}
 	  
 
-	public function cortar($mazo){
-		if( !($mazo->vacio()) ){
+	public function cortar(){
+		if($this->vacio()){
+			return false;
+		}
+		else{
 			$cantacortar = rand(1, $this->cantcart());
 			$mazo1 = array_slice($mazo, 0, $cantacortar);
 			$resto = $this->cantcart()-$cantacortar;
 			$mazo2 = array_slice($mazo, $resto, $this->cantcart());
 			$this->baraja = array_merge($mazo1, $mazo2);
 			return $this->baraja;
-		}
-		else{
-			return false;
 		}
 	}
 
@@ -44,22 +44,16 @@ protected $baraja;
 
 	public function vacio(){
 		if($this->cantcart() > 0){
-			return true;
+			return false;
 		}
 		else{
-			return false;
+			return true;
 		}
 	}
 
 
 	public function agregarCarta(CartaEspanola $carta){
 		$this->baraja[] = $carta;
-		return true;
-	}
-
-
-	public function agregarMazo($mazo){
-		$this->baraja = array_merge($this->baraja, $mazo);
 		return true;
 	}
 

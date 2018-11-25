@@ -49,7 +49,7 @@ class MazoTest extends TestCase {
 
  public function testVacio(){
       $mazo = new Mazo([]);
-      $this->assertFalse($mazo->vacio());
+      $this->assertTrue($mazo->vacio());
  }
 
 
@@ -57,6 +57,22 @@ class MazoTest extends TestCase {
       $mazo = new Mazo([]);
       $carta = new CartaEspanola('oro', 10);
       $this->assertTrue($mazo->agregarCarta($carta));
+      $this->assertFalse($mazo->vacio());
+ }
+
+ public function testCortar(){
+    $mazo = new Mazo([]);
+    $this->assertFalse($mazo->cortar());
+    $carta = new CartaEspanola('oro', 10);
+    $mazo->agregarCarta($carta);
+    $carta2 = new CartaEspanola('oro', 2);
+    $mazo->agregarCarta($carta2);
+    $carta3 = new CartaEspanola('basto', 5);
+    $mazo->agregarCarta($carta3);
+    $carta4 = new CartaEspanola('copa', 10);
+    $mazo->agregarCarta($carta4);   
+    $bar = $mazo->obtMazo();
+    $this->assertNotEquals($mazo->cortar(), $bar);
  }
 
 
