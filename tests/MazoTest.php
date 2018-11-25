@@ -35,7 +35,8 @@ class MazoTest extends TestCase {
       $mazo = new Mazo([$carta]);
       $this->assertEquals($mazo->obtenerCarta(1), $carta);
       //checkear
-      $this->assertFalse($mazo->obtenerCarta(-1));
+      $this->assertFalse($mazo->obtenerCarta(-2));
+      $this->assertFalse($mazo->obtenerCarta(-1), $carta);
    }
 
 
