@@ -28,7 +28,7 @@ class CartaEspanola {
     }
 
     
-    public function obteneNumero() {
+    public function obtenerNumero() {
         return $this->numero;
     }
 

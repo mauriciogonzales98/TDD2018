@@ -24,14 +24,6 @@ class MazoTest extends TestCase {
   }
 
 
-  // public function testCortar(){
-  //     $mazo= new Mazo;
-  //     $baraja = $mazo->crearmazo();
-  //     $baraja = $mazo->cortar($baraja,26);
-  //     $this->assertTrue(isset($baraja));  
-  //  }
-
-
   public function testObtenerCant(){
       $mazo = new Mazo([1,5,7,4,2]);
       $this->assertEquals($mazo->cantcart(),5);

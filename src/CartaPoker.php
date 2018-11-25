@@ -26,7 +26,7 @@ class CartaPoker {
         return $this->palo;
     }
     
-    public function obteneNumero() {
+    public function obtenerNumero() {
         return $this->numero;
     }
 }

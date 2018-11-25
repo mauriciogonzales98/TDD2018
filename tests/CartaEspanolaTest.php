@@ -10,14 +10,14 @@ class CartaEspanolaTest extends TestCase {
         $carta = new CartaEspanola('copa', 1);
         $this->assertTrue(isset($carta));
 
-        $this->assertFalse($carta2 = new CartaEspanola('picas', 2));
+        $this->assertFalse(new CartaEspanola('picas', 2));
     }
 
     public function testPaloYNumero(){
         $carta = new CartaEspanola('copa', 1);
 
         $this->assertEquals($carta->obtenerPalo(), 'copa');
-        $this->assertEquals($carta->obteneNumero, 1);
+        $this->assertEquals($carta->obtenerNumero(), 1);
     }
 
 
