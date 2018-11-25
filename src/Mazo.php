@@ -24,8 +24,9 @@ protected $baraja;
 		else{
 			$cantacortar = rand(1, $this->cantcart());
 			$mazo1 = array_slice($this->baraja, 0, $cantacortar);
-			$resto = $this->cantcart()-$cantacortar;
-			$mazo2 = array_slice($this->baraja, $resto, $this->cantcart());
+			//$resto = $this->cantcart()-$cantacortar;
+			//$mazo2 = array_slice($this->baraja, $resto, $this->cantcart());
+			$mazo2 = array_slice($this->baraja, $cantacortar, $this->cantcart());
 			$this->baraja = array_merge($mazo1, $mazo2);
 			return $this->baraja;
 		}
